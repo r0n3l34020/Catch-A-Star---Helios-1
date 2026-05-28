@@ -1,0 +1,14 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("output/sunspot_measurements.csv")
+df["date"] = pd.to_datetime(df["date"])
+
+plt.figure(figsize=(10, 5))
+plt.plot(df["date"], df["total_area_km2_approx"], marker="o")
+plt.title("Sunspot Area Over Time")
+plt.xlabel("Date")
+plt.ylabel("Approx. Total Sunspot Area (km²)")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
